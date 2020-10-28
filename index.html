@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Rock Paper Scissors Game</h1>
+    <script>
+        let playerScore = 0
+        let compScore = 0
+
+        function computerPlay() {
+            let choices = ["Rock", "Paper", "Scissors"]
+            let a = Math.floor(Math.random() * choices.length)
+            return choices[a].toLowerCase()
+                //console.log(choices)
+        }
+
+        function singleRound(playerSelection, computerSelection) {
+
+            let playerChoice = prompt("Enter Rock, Paper, Scissors to play")
+            playerSelection = playerChoice.toLowerCase()
+            computerSelection = computerPlay()
+
+            if (playerSelection == computerSelection) {
+                return 'This is a tie'
+            } else if (playerSelection === "rock" && computerSelection === "scissors") {
+                playerScore++
+                return 'Congratulations, you won';
+
+            } else if (playerSelection === "paper" && computerSelection === "rock") {
+                playerScore++
+                return 'Congratulations, you won!'
+
+            } else if (playerSelection === "scissors" && computerSelection === "paper") {
+                playerScore++
+                return 'Congratulations, you won!'
+
+            } else if (computerSelection === "rock" && playerSelection === "scissors") {
+                compScore++
+                return 'Sorry, the computer won!'
+
+            } else if (computerSelection === "paper" && playerSelection === "rock") {
+                compScore++
+                return 'Sorry, the computer won!'
+
+            } else if (computerSelection === "scissors" && playerSelection === "paper") {
+                compScore++
+                return 'Sorry, the computer won!'
+            } else return 'Invalid Entry'
+
+            console.log(playerScore)
+            console.log(compScore)
+        }
+
+        function game() {
+            for (let i = 0; i < 5; i++) {
+                alert(singleRound())
+            }
+        }
+        game()
+        alert("The computer scored:" + " " + compScore + " " + "and that of the player was:" + " " + playerScore)
+            //if (playerScore > compScore) {
+            // console.log("Player Won!")
+            //  } else console.log("Computer won!")
+    </script>
+</body>
+
+</html>
